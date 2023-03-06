@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://www.dropbox.com/s/8z6qwuq6zz5u83o/tab-icon.png?dl=1">
     <link rel="stylesheet" href="design.css">
     <title>Tic Tac Toe</title>
-
 </head>
 
 <body>
     <div id="playing-board-container">
+        <div id="score-board">
+            <div class="score-containers">
+                <b>PLAYER 1</b>
+                <b id="x-score"></b>
+            </div>
+            <div class="score-containers">
+                <b>PLAYER 2</b>
+                <b id="o-score"></b>
+            </div>
+        </div>
         <div id="playing-board">
             <div class="grid-container">
-                <div class="grid-item x">X</div>
-                <div class="grid-item o">O</div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
                 <div class="grid-item"></div>
                 <div class="grid-item"></div>
                 <div class="grid-item"></div>

@@ -2,11 +2,13 @@
 
 body{
     margin:0;
-    background-color: rgb(239, 203, 104);
+    background-color: rgb(219, 188, 103);
+    font-family: 'Indie Flower', Arial;
 }
 #playing-board-container{
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -16,6 +18,19 @@ body{
     border-radius: 30px;
     padding: 5px;
     background-color: rgb(43, 45, 66);
+}
+#score-board{
+    font-size: 30px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.score-containers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .grid-container{
     display: grid;
@@ -27,7 +42,6 @@ body{
     grid-template-columns: repeat(3, 1fr);
 }
 .grid-item{
-    font-family: 'Indie Flower', Arial;
     font-size: 100px;
     font-weight: bold;
     display: flex;
@@ -40,10 +54,10 @@ body{
     transition: 0.1s;
 }
 .grid-item.x{
-    color: rgb(239, 19, 56);
+    color: rgb(239, 50, 81);
 }
 .grid-item.o{
-    color: rgb(255, 255, 255);
+    color: rgb(234, 234, 234);
 }
 .grid-item:hover{
     cursor: pointer;
