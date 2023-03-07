@@ -1,6 +1,12 @@
 const playerXscore = document.getElementById('x-score');
 const playerOscore = document.getElementById('o-score');
 const gridItems = document.querySelectorAll('.grid-item'); 
+const playButton = document.getElementById('play-button');
+const startOverlay = document.getElementById('start-overlay');
+
+playButton.addEventListener('click', () => {
+    startOverlay.style.display = "none";
+});
 
 let gameBoard = [               
     [null, null, null],
