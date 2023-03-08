@@ -14,20 +14,49 @@
         <div id="title-container">
             <h1>TIC TAC TOE</h1>
         </div>
+          
         <div id="player-selection-container">
             <div id="player-selection-inner">
-                <div id="player1-container">
-                    plm
+                <div class="player-selection-container" id="player1-container">
+                    <div><input class="player-input" type="text" value="PLAYER 1" placeholder="PLAYER 1"></div>
                 </div>
-                <div id="player2-container">
-                    plm
+                
+                <div class="player-selection-container">
+                    <b>VS</b>
                 </div>
+
+                <div class="player-selection-container" id="player2-container">
+                    <button class="carousel-buttons">
+                        <i class="fa-solid fa-chevron-up fa-2x"></i>
+                    </button>
+
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item"><input class="player-input" type="text" value="PLAYER 2" placeholder="PLAYER 2"></div>
+                          <div class="carousel-item">COMPUTER</div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-buttons">
+                        <i class="fa-solid fa-chevron-down fa-2x"></i>
+                    </button>
+                </div>
+                
             </div>
         </div>
         <div id="play-button-container">
             <button id="play-button">play</button>
         </div>
     </div>
+    
+    <div id="end-overlay">
+        <div id="end-overlay-container">
+            <h1 id="winning-player"></h1>
+            <h3 class="end-button" id="try-again-button">TRY AGAIN?</h3>
+            <h3 class="end-button" id="back-button">BACK TO MENU</h3>
+        </div>
+    </div>
+
     <div id="playing-board-container">
         <div id="score-board">
             <div class="score-containers">
@@ -56,5 +85,6 @@
 </body>
 
 <script src="script.js"></script>
+<script src="https://kit.fontawesome.com/92f1d74cea.js" crossorigin="anonymous"></script>
 
 </html>

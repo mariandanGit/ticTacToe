@@ -4,6 +4,60 @@ const gridItems = document.querySelectorAll('.grid-item');
 const playButton = document.getElementById('play-button');
 const startOverlay = document.getElementById('start-overlay');
 
+const carousel = document.querySelector('.carousel');
+const carouselItems = document.querySelectorAll('.carousel-item');
+const upButton = document.querySelector('.fa-chevron-up');
+const downButton = document.querySelector('.fa-chevron-down');
+
+const endOverlay = document.getElementById('end-overlay');
+const tryAgainButton = document.getElementById('try-again-button');
+const backButton = document.getElementById('back-button');
+const winningPlayer = document.getElementById('winning-player');
+
+endOverlay.style.display = "none";
+
+tryAgainButton.addEventListener('click', () => {
+    endOverlay.style.display = "none";
+    resetScore();
+});
+backButton.addEventListener('click', () => {
+    endOverlay.style.display = "none";
+    startOverlay.style.display = "block";
+    resetScore();
+});
+
+let currentItemIndex = 0;
+let playerType = 'player';
+
+function showCurrentItem() {
+    carouselItems.forEach((item, index) => {
+        if (index === currentItemIndex) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+upButton.addEventListener('click', () => {
+    currentItemIndex--;
+    if (currentItemIndex < 0) {
+        currentItemIndex = carouselItems.length - 1;
+    }
+    showCurrentItem();
+});
+
+downButton.addEventListener('click', () => {
+    currentItemIndex++;
+    if (currentItemIndex >= carouselItems.length) {
+        currentItemIndex = 0;
+    }
+    showCurrentItem();
+});
+
+showCurrentItem();
+
+
 playButton.addEventListener('click', () => {
     startOverlay.style.display = "none";
 });
@@ -37,6 +91,7 @@ function checkForWinner() {
         return true;
     }
 }
+
 function resetGame() {
     numOfMoves = 0;
     gridItems.forEach((item, index) => {
@@ -54,14 +109,18 @@ function resetGame() {
         [null, null, null],
       ];
 }
+
 function resetScore(){
     playerXscore.textContent = 0;
     playerOscore.textContent = 0;
+    playerXScoreVal = 0;             
+    playerOScoreVal = 0;
 }
 
 gridItems.forEach((item, index) => {
     item.addEventListener('click', () => {
         numOfMoves++;
+
         if (gameBoard[Math.floor(index / 3)][index % 3] !== null || checkForWinner()) {
             return;
         }
@@ -73,10 +132,17 @@ gridItems.forEach((item, index) => {
         if (checkForWinner()) {
             if (currentPlayer === 'x') {
                 playerXScoreVal++;
-                
+                if(playerXScoreVal === 3){
+                    endOverlay.style.display = 'block';
+                    winningPlayer.textContent = "PLAYER 1 WINS!";
+                }
             } 
             else {
                 playerOScoreVal++;
+                if(playerOScoreVal === 3){
+                    endOverlay.style.display = 'block';
+                    winningPlayer.textContent = "PLAYER 2 WINS!";
+                }            
             }
             playerXscore.textContent = playerXScoreVal;
             playerOscore.textContent = playerOScoreVal;
